@@ -1,0 +1,102 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-white font-sans text-ink antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply leading-[120%];
+  }
+
+  p {
+    @apply leading-[150%];
+  }
+
+  ::selection {
+    @apply bg-black text-white;
+  }
+
+  :focus-visible {
+    @apply outline-none ring-2 ring-black ring-offset-2;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-md text-[13px] font-semibold uppercase tracking-nav transition-all duration-300 select-none;
+    @apply px-8 py-3.5;
+    @apply disabled:pointer-events-none disabled:opacity-40;
+  }
+
+  .btn-primary {
+    @apply btn bg-black text-white shadow-sm hover:bg-ink hover:shadow-md active:translate-y-px;
+  }
+
+  .btn-secondary {
+    @apply btn border border-black bg-transparent text-black hover:bg-black hover:text-white active:translate-y-px;
+  }
+
+  .btn-ghost {
+    @apply btn bg-surface-grey text-ink hover:bg-black hover:text-white active:translate-y-px;
+  }
+
+  .btn-sm {
+    @apply px-5 py-2.5 text-[12px];
+  }
+
+  .field-label {
+    @apply mb-1.5 block text-[12px] font-semibold uppercase tracking-nav text-ink;
+  }
+
+  .field {
+    @apply w-full rounded-md border border-ink/15 bg-white px-4 py-3 text-sm text-ink placeholder:text-muted focus:border-black;
+  }
+
+  .section-pad {
+    @apply px-5 py-16 sm:px-8 md:py-24 lg:px-12;
+  }
+
+  .wrap {
+    @apply mx-auto w-full max-w-7xl;
+  }
+
+  .eyebrow {
+    @apply text-[12px] font-semibold uppercase tracking-widest2 text-black;
+  }
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .placeholder-shimmer {
+    background: linear-gradient(135deg, #f7f7f7 0%, #eeeeee 50%, #fafafa 100%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
