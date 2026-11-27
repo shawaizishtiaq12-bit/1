@@ -12,7 +12,7 @@
 
 ## Visual design & UX direction
 
-- **Color scheme:** strict black-and-white / neutral grayscale — black primary actions, white surfaces, neutral placeholders; no colored accents (e.g., no cyan/green).
+- **Color scheme:** strict black-and-white / neutral grayscale — black primary actions, white surfaces, neutral placeholders; no colored accents.
 - **Minimalism:** gradients softened or removed; rounded controls and shared accent styling simplified for a cleaner look.
 - Shared logo component renders consistently across desktop header, mobile menu, and footer; logo asset is a supplied image file stored in the project.
 
@@ -22,10 +22,12 @@
 - Import alias `@/` → `src/` for all project modules; avoid deep relative paths (per `.bolt/prompt`).
 - Color system is centralized in shared tokens, enabling a single-pass theme change without altering layout or functionality.
 - Minimalist simplification intentionally preserves existing structure, interactions, and features.
-- Project builds successfully after theme change.
+- **Backend:** Supabase (PostgreSQL + Auth); frontend uses two env vars — `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY`. Row-level security protects data despite public anon key.
+- **Deployment target:** Vercel; env vars must be added under Settings → Environment Variables and redeployed.
 
 ## Open questions & assumptions
 
 - Logo exact dimensions/aspect ratio and responsive sizing behavior not yet specified.
 - Favicon and metadata branding may need to match VELEURA logo — not yet confirmed.
 - Whether the monochrome theme should also apply to imagery/photos or is limited to UI tokens is unconfirmed.
+- Supabase schema, tables, and auth configuration not yet documented.
